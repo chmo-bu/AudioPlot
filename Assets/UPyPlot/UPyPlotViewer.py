@@ -39,7 +39,7 @@ def animate(i):
         return
 
     nElements = dataHeader.__len__()
-    yElements = [np.array([]) for x in xrange(nElements)]
+    yElements = [np.array([]) for x in range(nElements)]
 
 
     for i, eachLine in enumerate(dataArray):

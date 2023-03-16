@@ -58,7 +58,7 @@ class UPyPlot ():
         elif not self.plotCombined and self.yElements.__len__() != self.axs.__len__():
             clearAllAxes()
             size = self.yElements.__len__()
-            for n in xrange(1, size + 1):
+            for n in range(1, size + 1):
                 self.axs.append(createNewAxes(size, n))
         else:
             for ax in self.axs:
@@ -85,7 +85,7 @@ class UPyPlot ():
             return
 
         self.nElements = dataHeader.__len__()
-        self.yElements = [np.array([]) for x in xrange(self.nElements)]
+        self.yElements = [np.array([]) for x in range(self.nElements)]
 
         for i, eachLine in enumerate(dataArray):
             if len(eachLine) > 1:
