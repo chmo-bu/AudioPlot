@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using ClapDetector;
-using Audio;
+// using Audio;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,22 +26,22 @@ public class UPyPlotExampleSender : MonoBehaviour {
 	private float lastRndZ = 0;
 
 	void Start() {
-		micListener = new MicListener();
-		micListener.StartRecording();
+		// micListener = new MicListener();
+		// micListener.StartRecording();
 		// Runnable.Run(getData());
 		//clapDetector = new ClapDetector.ClapDetector();
 		//clapDetector.Listen();
 	}
 
-	private IEnumerator getData() {
-		while (true) {
-			if (micListener.data.Count != 0) {
-				xVar = micListener.data.Dequeue();
-				yield return new WaitForSeconds(0.01f);
-			}
-			yield return new WaitForSeconds(0.15f);
-		}
-	}
+	// private IEnumerator getData() {
+	// 	while (true) {
+	// 		if (micListener.data.Count != 0) {
+	// 			xVar = micListener.data.Dequeue();
+	// 			yield return new WaitForSeconds(0.01f);
+	// 		}
+	// 		yield return new WaitForSeconds(0.15f);
+	// 	}
+	// }
 
 	void Update () { // Some example code that makes the values change in the plot.
 		// xVar = micListener.xVar;

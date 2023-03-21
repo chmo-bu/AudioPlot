@@ -6,6 +6,7 @@ from matplotlib.lines import Line2D
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import serial
+import time
 
 HOST = "localhost"  # Standard loopback interface address (localhost)
 PORT = 8052  # Port to listen on (non-privileged ports are > 1023)
@@ -62,19 +63,23 @@ class emitter:
         
     def emit(self):
         while True:
+            time.sleep(0.1)
             data = self.conn.recv(16000)
             if not data:
                 break
+            
+            # print(len(data) // 4, len(data))
             data = struct.unpack(f"<{len(data) // 4}f", data)
             
-            if (min(data) != -2.0):
-                continue
-            
-            res = []
-            for d in data:
-                if (d == -2.0):
-                    break
-                res.append(d)
+            # if (min(data) != -2.0):
+            #     continue
+                        
+            # res = []
+            # for d in data:
+            #     if (d == -2.0):
+            #         break
+            #     res.append(d)
+            res = data
             
             # print(res)
             
@@ -85,11 +90,12 @@ if __name__ == "__main__":
     # with serial.serial_for_url("http://localhost:8052") as s:
     #     while (True):
     #         print(len(s.inWaiting()))
-        
+    # e = emitter()
+    # e.emit() 
     try:
         e = emitter()
         fig, ax = plt.subplots()
-        scope = Scope(ax, maxt=1000)
+        scope = Scope(ax, maxt=2000)
 
         # pass a generator in "emitter" to produce data for the update func
         ani = animation.FuncAnimation(fig, scope.update, e.emit(), interval=50,

@@ -1,4 +1,4 @@
-25,10.42
+25,39.58
 ExampleSphere_Upper\UPyPlotExampleSender\xVar,ExampleSphere_Lower\UPyPlotExampleSender\xVar
 0.00,0.00
 0.00,0.00
