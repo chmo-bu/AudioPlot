@@ -11,17 +11,17 @@ namespace UPyPlot {
 		[Tooltip("Name of the plot data file (Must Match Setting In Python File!!).")]
 		private string absoluteName;
 
-		[Range(0,4)]
+		[Range(0,6)]
 		[Tooltip("Number of decimal places for each value in the plot data file.")]
 		[SerializeField] private int precision = 2; // How many decimal places to add when storing values in the plot data file.
 
-		[Range(0.1f,1.0f)]
+		[Range(0.01f,1.0f)]
 		[Tooltip("Rate in seconds which to update plot data file with new values.")]
 		[SerializeField] private float interval = 0.1f; // How often to update the data in the plot data file.
 
-		[Range(2,1000)]
+		[Range(2,5000)]
 		[Tooltip("Maximum lines/history that the plot file should contain.")]
-		[SerializeField] private int maxSamples = 25;
+		[SerializeField] private int maxSamples = 5000;
 		private int currentSample = 0;
 
 		private List<FieldInfo> probes = new List<FieldInfo>();
